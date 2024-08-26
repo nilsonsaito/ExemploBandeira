@@ -1,0 +1,331 @@
+<!DOCTYPE html>
+
+<!-- Esta aula tem como objetivo apresentar um exemplo básico de uso das ferramentas de desenho no Canvas -->
+
+<html lang="pt-BR">
+
+<head>
+
+<title>BRASIL</title>
+
+<meta charset="UTF-8">
+
+<!-- Incício do Script do Canvas -->
+
+
+
+<script>
+
+function draw(){
+
+var canvas = document.getElementById('meuCanvas');
+
+if(canvas.getContext){
+
+var cntxt = canvas.getContext('2d');
+
+var x = 312.5;
+
+var y = 112.0;
+
+//Retângulo
+
+cntxt.beginPath();
+
+cntxt.fillStyle = "rgb(0, 255, 0)";
+
+cntxt.fillRect (25, 30, 525, 330);
+
+cntxt.closePath();
+
+//Losângo
+
+cntxt.beginPath();
+
+cntxt.fillStyle = "rgb(255, 255, 0)";
+
+cntxt.moveTo(282.5, 35);
+
+cntxt.lineTo(545,195);
+
+cntxt.lineTo(282.5, 355);
+
+cntxt.lineTo(30, 195);
+
+cntxt.fill();
+
+cntxt.closePath();
+
+//Círculo
+
+cntxt.beginPath();
+
+cntxt.fillStyle = "rgb(0, 0, 255)";
+
+cntxt.arc(282.5, 195, 125, 0, 2*Math.PI);
+
+cntxt.fill();
+
+cntxt.closePath();
+
+//Arcos
+
+cntxt.beginPath();
+
+cntxt.strokeStyle="green";
+
+cntxt.fillStyle = "rgb(255, 255, 255)";
+
+cntxt.moveTo(157.5, 215);
+
+cntxt.quadraticCurveTo(282.5, 125, 407.5, 180);
+
+cntxt.lineTo(403.5, 160);
+
+cntxt.quadraticCurveTo(282.5, 105, 156.5, 195);
+
+cntxt.closePath();
+
+cntxt.fill();
+
+cntxt.stroke();
+
+
+
+
+//Texto
+
+cntxt.beginPath();
+
+cntxt.font = "22px Arial";
+
+cntxt.fillStyle = "green";
+
+cntxt.textAlign = "center";
+
+cntxt.fillText("O", 163.5, 210);
+
+cntxt.fillText("R", 174.5, 204);
+
+cntxt.fillText("D", 185.5, 196);
+
+cntxt.fillText("E", 196.5, 191);
+
+cntxt.fillText("M", 209.5, 184);
+
+
+
+
+//Rotação de texto
+
+cntxt.save();
+
+cntxt.translate(250.5, 166);
+
+cntxt.rotate(-Math.PI/10);
+
+cntxt.textAlign = "center";
+
+cntxt.fillText("E", 0, 0);
+
+cntxt.restore();
+
+
+
+
+//Continuando texto sem rotação
+
+cntxt.fillText("P", 280.5, 160);
+
+cntxt.fillText("R", 296.5, 159);
+
+cntxt.fillText("O", 312.5, 158);
+
+cntxt.fillText("G", 328.5, 158);
+
+cntxt.fillText("R", 344.5, 159);
+
+cntxt.fillText("E", 356.5, 161);
+
+cntxt.fillText("S", 371.5, 164);
+
+cntxt.fillText("S", 384.5, 170);
+
+cntxt.fillText("O", 398.5, 175);
+
+
+
+
+
+
+
+
+
+
+
+
+
+//Estrela 1
+
+
+
+
+estrela(x, y, 0.8);
+
+
+
+
+
+
+
+
+
+
+
+
+//Estrelas 2
+
+x = 310;
+
+y = 170;
+
+estrela(x, y, 0.8);
+
+
+
+
+//Estrela 3
+
+x = 350;
+
+y = 180;
+
+estrela(x, y, 0.8);
+
+
+
+
+//Estrela 4
+
+x = 250;
+
+y = 200;
+
+estrela(x, y, 0.8);
+
+//.
+
+//.
+
+//.
+
+
+
+
+//Estrela 26 Menor
+
+
+
+
+x = 210;
+
+y = 250;
+
+estrela(x, y, 0.4);
+
+
+
+
+
+
+
+
+
+
+//Estrela 27
+
+x = 200;
+
+y = 210;
+
+estrela(x, y, 0.7);
+
+
+
+
+
+
+
+
+
+
+
+
+}
+
+}
+
+
+
+
+function estrela(x, y, w){
+
+var canvas = document.getElementById('meuCanvas');
+
+if(canvas.getContext){
+
+var cntxt = canvas.getContext('2d');
+
+cntxt.beginPath();
+
+cntxt.fillStyle = "rgb(255, 255, 255)";
+
+cntxt.moveTo(x, y);
+
+cntxt.lineTo(x+4*w, y+8*w);
+
+cntxt.lineTo(x+13*w, y+8*w);
+
+cntxt.lineTo(x+5.5*w, y+15*w);
+
+cntxt.lineTo(x+11.5*w, y+23*w);
+
+cntxt.lineTo(x, y+18*w);
+
+cntxt.lineTo(x-11.5*w, y+23*w);
+
+cntxt.lineTo(x-5.5*w, y+15*w);
+
+cntxt.lineTo(x-13*w, y+8*w);
+
+cntxt.lineTo(x-4*w, y+8*w);
+
+cntxt.closePath();
+
+cntxt.fill();
+
+}
+
+}
+
+</script>
+
+
+
+<!-- Fim do Script do canvas-->
+
+
+
+
+
+
+
+</head>
+
+<body onload="draw();">
+
+<canvas id="meuCanvas" width="600" height="500" style="border:1px solid #000000;"></canvas>
+
+</body>
+
+</html>
